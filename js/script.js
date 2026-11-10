@@ -231,7 +231,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const easeOut = (t) => 1 - Math.pow(1 - t, 3);
     const pad2 = (num) => (num < 10 ? '0' : '') + num;
 
-    const isMobileDevice = () => window.innerWidth <= 768;
+    const isMobileDevice = () => window.innerWidth <= 900;
 
     const pose = (p, i, reduced) => {
       const enter = i === 0 ? 1 : clamp(p - (i - 1), 0, 1);
@@ -242,11 +242,12 @@ document.addEventListener('DOMContentLoaded', () => {
       const e = easeOut(enter);
       const mobile = isMobileDevice();
       return {
-        y: (1 - e) * (mobile ? 115 : 130) - depth * (mobile ? 2.4 : 3.2),
-        scale: (1 - depth * 0.07) * (0.9 + 0.1 * e),
-        // No mobile, modera a rotação rx para o topo do card nunca subir sobre o título
-        rx: ((1 - e) * 22 - depth * 9) * (mobile ? 0.35 : 1),
-        rz: ((1 - e) * (i % 2 ? 5 : -5) + 0) * (mobile ? 0.5 : 1),
+        // No mobile, remove o deslocamento negativo de profundidade para que nenhum card suba em direção ao título
+        y: (1 - e) * (mobile ? 110 : 130) - (mobile ? 0 : depth * 3.2),
+        scale: (1 - depth * (mobile ? 0.04 : 0.07)) * (mobile ? (0.93 + 0.07 * e) : (0.9 + 0.1 * e)),
+        // No mobile, zera rx para evitar que a borda superior do card incline para cima sobre o título
+        rx: mobile ? 0 : ((1 - e) * 22 - depth * 9),
+        rz: ((1 - e) * (i % 2 ? 5 : -5) + 0) * (mobile ? 0.2 : 1),
         shade: Math.min(depth, 2) * 0.34,
         opacity: depth > 2.6 ? clamp((3 - depth) / 0.4, 0, 1) : 1,
       };

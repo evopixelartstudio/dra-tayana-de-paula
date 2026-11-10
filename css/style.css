@@ -1686,24 +1686,34 @@ ul, ol {
     height: calc(100vh - var(--header-height, 70px));
     height: calc(100dvh - var(--header-height, 70px));
     max-height: calc(100dvh - var(--header-height, 70px));
-    padding: clamp(8px, 1.8vh, 14px) 16px clamp(10px, 1.8vh, 16px);
+    padding: clamp(10px, 2vh, 18px) 16px clamp(8px, 1.5vh, 14px);
     overflow: hidden;
   }
   
   .tss-head {
     align-items: flex-start;
-    margin-bottom: clamp(14px, 2.4vh, 22px);
+    margin-bottom: clamp(12px, 2vh, 18px);
     gap: 12px;
+    position: relative;
+    z-index: 30;
+    flex-shrink: 0;
   }
 
   .tss-h {
-    font-size: clamp(1.4rem, 5vw, 1.85rem);
-    line-height: 1.15;
+    font-size: clamp(1.35rem, 4.6vw, 1.75rem);
+    line-height: 1.18;
+    margin: 0;
   }
 
   .tss-deck {
-    margin-top: 6px;
-    perspective: 1200px;
+    margin-top: 10px;
+    perspective: 1400px;
+    position: relative;
+    z-index: 10;
+  }
+  
+  .tss-card {
+    border-radius: 20px;
   }
   
   .tss-rail {
@@ -1713,7 +1723,7 @@ ul, ol {
   .tss-bottom {
     flex-direction: column;
     align-items: flex-start;
-    gap: 14px;
+    gap: 12px;
   }
   
   .tss-buy {
