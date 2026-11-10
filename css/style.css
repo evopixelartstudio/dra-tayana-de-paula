@@ -1293,27 +1293,34 @@ ul, ol {
   min-height: 90dvh;
   background-color: #F7EDE8;
   background-image: 
-    linear-gradient(to right, #F7EDE8 0%, #F7EDE8 38%, rgba(247, 237, 232, 0.88) 52%, rgba(247, 237, 232, 0) 74%),
+    linear-gradient(to right, #F7EDE8 0%, #F7EDE8 42%, rgba(247, 237, 232, 0.94) 54%, rgba(247, 237, 232, 0) 74%),
     url('../assets/images/sobre a Dra.png');
-  background-position: left top, right bottom;
-  background-repeat: no-repeat;
-  background-size: auto, cover;
+  background-position: left top, calc(100% + clamp(20px, 4vw, 60px)) bottom;
+  background-repeat: no-repeat, no-repeat;
+  background-size: 100% 100%, auto min(820px, 92vh);
   display: flex;
-  align-items: center;
-  border-top: 1px solid var(--color-divider);
-  border-bottom: 1px solid var(--color-divider);
-  padding: clamp(4.5rem, 8vw, 7rem) 0;
+  flex-direction: column;
+  justify-content: center;
+  border-top: none;
+  border-bottom: none;
+  padding: clamp(3rem, 6vw, 5rem) 0;
   overflow: hidden;
 }
 
 .about-doctor-bleed-container {
   width: 100%;
+  position: relative;
+  z-index: 2;
+  margin-top: auto;
+  margin-bottom: auto;
 }
 
 .about-doctor-bleed-text {
-  max-width: 580px;
+  max-width: min(560px, 46vw);
   position: relative;
   z-index: 2;
+  margin-left: 0;
+  margin-right: auto;
 }
 
 .about-doctor-title {
@@ -1435,11 +1442,11 @@ ul, ol {
   z-index: 10;
   width: 100%;
   max-width: 1100px;
-  margin: 0 auto clamp(10px, 1.8vh, 18px);
+  margin: 0 auto clamp(28px, 4.2vh, 46px);
   display: flex;
   align-items: flex-end;
   justify-content: space-between;
-  gap: 20px;
+  gap: 24px;
   flex-shrink: 0;
 }
 
@@ -1756,7 +1763,7 @@ ul, ol {
   
   .tss-head {
     align-items: flex-start;
-    margin-bottom: clamp(12px, 2vh, 18px);
+    margin-bottom: clamp(18px, 2.8vh, 26px);
     gap: 12px;
     position: relative;
     z-index: 30;

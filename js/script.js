@@ -23,7 +23,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   };
 
-  window.addEventListener('scroll', handleHeaderScroll, { passive: true });
   handleHeaderScroll();
 
   // --------------------------------------------------------------------------
@@ -164,31 +163,52 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // --------------------------------------------------------------------------
-  // 06. NAVEGAÇÃO ATIVA CONFORME O SCROLL
+  // 06. NAVEGAÇÃO ATIVA CONFORME O SCROLL (COM CACHE DE OFFSETS E RAF THROTTLE)
   // --------------------------------------------------------------------------
   const trackedSections = document.querySelectorAll('section[id]');
   const navLinks = document.querySelectorAll('.nav-link');
 
+  let sectionOffsets = [];
+  const recalculateOffsets = () => {
+    sectionOffsets = Array.from(trackedSections).map(sec => ({
+      id: sec.getAttribute('id'),
+      top: sec.offsetTop - 120,
+      bottom: sec.offsetTop - 120 + sec.offsetHeight
+    }));
+  };
+  recalculateOffsets();
+  window.addEventListener('resize', recalculateOffsets, { passive: true });
+
   const updateActiveSection = () => {
     const scrollPos = window.pageYOffset;
-
-    trackedSections.forEach(current => {
-      const sectionHeight = current.offsetHeight;
-      const sectionTop = current.offsetTop - 120;
-      const sectionId = current.getAttribute('id');
-
-      if (scrollPos > sectionTop && scrollPos <= sectionTop + sectionHeight) {
+    for (let i = 0; i < sectionOffsets.length; i++) {
+      const s = sectionOffsets[i];
+      if (scrollPos > s.top && scrollPos <= s.bottom) {
         navLinks.forEach(item => {
-          item.classList.remove('active');
-          if (item.getAttribute('href') === `#${sectionId}`) {
+          if (item.getAttribute('href') === `#${s.id}`) {
             item.classList.add('active');
+          } else {
+            item.classList.remove('active');
           }
         });
+        break;
       }
-    });
+    }
   };
 
-  window.addEventListener('scroll', updateActiveSection, { passive: true });
+  // Scroll listener unificado via requestAnimationFrame para 0% de lag
+  let scrollTicking = false;
+  const onUnifiedScroll = () => {
+    if (!scrollTicking) {
+      window.requestAnimationFrame(() => {
+        handleHeaderScroll();
+        updateActiveSection();
+        scrollTicking = false;
+      });
+      scrollTicking = true;
+    }
+  };
+  window.addEventListener('scroll', onUnifiedScroll, { passive: true });
 
   // --------------------------------------------------------------------------
   // 07. EFEITO DE ENTRADA DE DESENHO NOS ÍCONES DA CONSULTA (DRAWING ANIMATION)
@@ -224,8 +244,8 @@ document.addEventListener('DOMContentLoaded', () => {
     if (!track || !cards.length) return;
 
     const n = cards.length;
-    // Distância confortável e ágil de scroll por card (65vh por transição ao invés de 100vh)
-    track.style.height = `calc(100vh + ${(n - 1) * 65}vh)`;
+    // Distância confortável e ágil de scroll por card (60vh por transição para máxima fluidez)
+    track.style.height = `calc(100vh + ${(n - 1) * 60}vh)`;
 
     const clamp = (v, a, b) => (v < a ? a : v > b ? b : v);
     const easeOut = (t) => 1 - Math.pow(1 - t, 3);
@@ -260,10 +280,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
     cards.forEach((c, i) => {
       c.style.zIndex = String(i + 1);
+      // Hardware acceleration para transição 60fps / 120fps
+      c.style.willChange = 'transform, opacity';
     });
 
     const isReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
+    let lastActiveIdx = -1;
     const paint = (p) => {
       for (let i = 0; i < n; i++) {
         const q = pose(p, i, isReduced);
@@ -273,8 +296,9 @@ document.addEventListener('DOMContentLoaded', () => {
           shades[i].style.opacity = String(q.shade);
         }
       }
-      if (currEl) {
-        const activeIdx = clamp(Math.round(p), 0, n - 1);
+      const activeIdx = clamp(Math.round(p), 0, n - 1);
+      if (currEl && activeIdx !== lastActiveIdx) {
+        lastActiveIdx = activeIdx;
         currEl.textContent = pad2(activeIdx + 1);
       }
       if (railBar && n > 1) {
@@ -288,17 +312,12 @@ document.addEventListener('DOMContentLoaded', () => {
     if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
       gsap.registerPlugin(ScrollTrigger);
 
+      // Scrub ultra-rápido (0.2) e SEM trava artificial de snap para rolagem instantânea e livre
       ScrollTrigger.create({
         trigger: track,
         start: 'top top',
         end: 'bottom bottom',
-        scrub: 0.5, // Suavização contínua a 60fps sem trancos no scroll
-        snap: {
-          snapTo: (value) => Math.round(value * (n - 1)) / (n - 1),
-          duration: { min: 0.2, max: 0.38 },
-          delay: 0.2, // Só atraca suavemente 200ms após o usuário parar de rolar
-          ease: 'power2.out',
-        },
+        scrub: 0.2, // Resposta instantânea e sedosa ao dedo/scroll sem atraso ou delay
         onUpdate: (self) => paint(self.progress * (n - 1)),
       });
     }
