@@ -224,7 +224,8 @@ document.addEventListener('DOMContentLoaded', () => {
     if (!track || !cards.length) return;
 
     const n = cards.length;
-    track.style.height = `calc(100vh + ${(n - 1) * 100}vh)`;
+    // Distância confortável e ágil de scroll por card (65vh por transição ao invés de 100vh)
+    track.style.height = `calc(100vh + ${(n - 1) * 65}vh)`;
 
     const clamp = (v, a, b) => (v < a ? a : v > b ? b : v);
     const easeOut = (t) => 1 - Math.pow(1 - t, 3);
@@ -286,11 +287,12 @@ document.addEventListener('DOMContentLoaded', () => {
         trigger: track,
         start: 'top top',
         end: 'bottom bottom',
-        scrub: true,
+        scrub: 0.5, // Suavização contínua a 60fps sem trancos no scroll
         snap: {
           snapTo: (value) => Math.round(value * (n - 1)) / (n - 1),
-          duration: { min: 0.15, max: 0.35 },
-          ease: 'power1.out',
+          duration: { min: 0.2, max: 0.38 },
+          delay: 0.2, // Só atraca suavemente 200ms após o usuário parar de rolar
+          ease: 'power2.out',
         },
         onUpdate: (self) => paint(self.progress * (n - 1)),
       });

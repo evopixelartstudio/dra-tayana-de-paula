@@ -1395,7 +1395,9 @@ ul, ol {
   overflow: hidden;
   transform-origin: 50% 0;
   will-change: transform, opacity;
+  contain: layout paint;
   backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
   background-color: #1a1215;
   color: #fff;
   box-shadow: 0 1px 0 rgba(255, 255, 255, 0.18) inset,
@@ -1576,22 +1578,24 @@ ul, ol {
 
 .social-proof-pill-compact {
   margin-top: 6px;
-  background: rgba(26, 18, 21, 0.75);
-  border-color: rgba(255, 255, 255, 0.2);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
+  background: rgba(255, 255, 255, 0.95);
+  border-color: rgba(217, 201, 189, 0.65);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
   padding: 0.35rem 0.75rem 0.35rem 0.5rem;
+  box-shadow: 0 4px 14px rgba(48, 43, 44, 0.1);
 }
 
 .social-proof-pill-compact .pill-number {
-  color: #fff;
+  color: var(--color-grafite, #302B2C);
   font-size: 0.75rem;
+  font-weight: 700;
 }
 
 .social-proof-pill-compact .pill-avatar-img {
   width: 24px;
   height: 24px;
-  border-color: #1a1215;
+  border-color: #ffffff;
 }
 
 .procedures-disclaimer {
@@ -1871,6 +1875,28 @@ ul, ol {
   aspect-ratio: 3 / 4;
   position: relative;
   z-index: 1;
+}
+
+/* Selo Giratório da Seção 08 (Anexo 2) sobre o ombro */
+.differential-rotating-seal {
+  position: absolute;
+  top: 36%;
+  left: -40px;
+  width: clamp(90px, 9vw, 108px);
+  height: clamp(90px, 9vw, 108px);
+  animation: rotateSeal 28s linear infinite;
+  filter: drop-shadow(0 10px 24px rgba(48, 43, 44, 0.16));
+  z-index: 5;
+  pointer-events: none;
+}
+
+@media (max-width: 768px) {
+  .differential-rotating-seal {
+    top: 32%;
+    left: -20px;
+    width: 82px;
+    height: 82px;
+  }
 }
 
 .duo-image-primary {
