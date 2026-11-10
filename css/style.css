@@ -575,9 +575,9 @@ ul, ol {
   align-items: center;
   background-color: #EEEDF2;
   background-image: 
-    linear-gradient(to right, #EEEDF2 0%, #EEEDF2 38%, rgba(238, 237, 242, 0.94) 50%, rgba(238, 237, 242, 0) 68%),
+    linear-gradient(to right, #EEEDF2 0%, #EEEDF2 36%, rgba(238, 237, 242, 0.92) 46%, rgba(238, 237, 242, 0) 62%),
     url('../assets/images/Hero.png');
-  background-position: left center, calc(100% + clamp(100px, 8vw, 170px)) bottom;
+  background-position: left center, calc(100% - clamp(15px, 3.5vw, 65px)) bottom;
   background-repeat: no-repeat, no-repeat;
   background-size: 100% 100%, auto clamp(620px, calc(100vh - var(--header-height) + 2.5rem), 940px);
   padding-top: var(--header-height);
@@ -951,20 +951,20 @@ ul, ol {
 }
 
 .badge-top {
-  top: 20%;
-  left: 2%;
+  top: 18%;
+  left: -2%;
   animation-delay: 0s;
 }
 
 .badge-middle {
-  top: 54%;
-  left: -5%;
+  top: 52%;
+  left: -8%;
   animation-delay: 1.2s;
 }
 
 .badge-bottom {
-  bottom: 8%;
-  left: 8%;
+  bottom: 10%;
+  left: 2%;
   animation-delay: 2.4s;
 }
 
@@ -979,11 +979,13 @@ ul, ol {
 
 .hero-rotating-seal {
   position: absolute;
-  top: 8%;
-  right: 2%;
-  width: 105px;
-  height: 105px;
+  top: 48%;
+  right: clamp(0px, 1.5vw, 24px);
+  width: clamp(96px, 7vw, 110px);
+  height: clamp(96px, 7vw, 110px);
   animation: rotateSeal 28s linear infinite;
+  filter: drop-shadow(0 10px 24px rgba(48, 43, 44, 0.12));
+  z-index: 5;
 }
 
 .seal-svg-img {
