@@ -231,6 +231,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const easeOut = (t) => 1 - Math.pow(1 - t, 3);
     const pad2 = (num) => (num < 10 ? '0' : '') + num;
 
+    const isMobileDevice = () => window.innerWidth <= 768;
+
     const pose = (p, i, reduced) => {
       const enter = i === 0 ? 1 : clamp(p - (i - 1), 0, 1);
       const depth = clamp(p - i, 0, 3);
@@ -238,18 +240,20 @@ document.addEventListener('DOMContentLoaded', () => {
         return { y: 0, scale: 1, rx: 0, rz: 0, shade: Math.min(depth, 1) * 0.5, opacity: enter >= 1 ? 1 : enter };
       }
       const e = easeOut(enter);
+      const mobile = isMobileDevice();
       return {
-        y: (1 - e) * 130 - depth * 3.2,
+        y: (1 - e) * (mobile ? 115 : 130) - depth * (mobile ? 2.4 : 3.2),
         scale: (1 - depth * 0.07) * (0.9 + 0.1 * e),
-        rx: (1 - e) * 22 - depth * 9,
-        rz: (1 - e) * (i % 2 ? 5 : -5) + 0,
+        // No mobile, modera a rotação rx para o topo do card nunca subir sobre o título
+        rx: ((1 - e) * 22 - depth * 9) * (mobile ? 0.35 : 1),
+        rz: ((1 - e) * (i % 2 ? 5 : -5) + 0) * (mobile ? 0.5 : 1),
         shade: Math.min(depth, 2) * 0.34,
         opacity: depth > 2.6 ? clamp((3 - depth) / 0.4, 0, 1) : 1,
       };
     };
 
     const toTransform = (q) =>
-      `translate3d(0,${q.y.toFixed(3)}%,0) perspective(1400px) rotateX(${q.rx.toFixed(3)}deg) rotateZ(${q.rz.toFixed(3)}deg) scale(${q.scale.toFixed(4)})`;
+      `translate3d(0,${q.y.toFixed(3)}%,0) perspective(${isMobileDevice() ? 1800 : 1400}px) rotateX(${q.rx.toFixed(3)}deg) rotateZ(${q.rz.toFixed(3)}deg) scale(${q.scale.toFixed(4)})`;
 
     const shades = cards.map((c) => c.querySelector('.tss-shade'));
 

@@ -596,6 +596,14 @@ ul, ol {
   border-bottom: 1px solid var(--color-divider);
 }
 
+.hero-mobile-photo-wrap {
+  display: none;
+}
+
+.about-mobile-photo-wrap {
+  display: none;
+}
+
 .hero-anatomical-ghost {
   position: absolute;
   top: 15%;
@@ -1674,12 +1682,28 @@ ul, ol {
 /* Responsividade Mobile e Tablet para Tilt-Stack */
 @media (max-width: 900px) {
   .tss-stage {
-    padding: 14px 16px 12px;
+    top: var(--header-height, 70px);
+    height: calc(100vh - var(--header-height, 70px));
+    height: calc(100dvh - var(--header-height, 70px));
+    max-height: calc(100dvh - var(--header-height, 70px));
+    padding: clamp(8px, 1.8vh, 14px) 16px clamp(10px, 1.8vh, 16px);
+    overflow: hidden;
   }
   
   .tss-head {
-    align-items: center;
-    margin-bottom: 12px;
+    align-items: flex-start;
+    margin-bottom: clamp(14px, 2.4vh, 22px);
+    gap: 12px;
+  }
+
+  .tss-h {
+    font-size: clamp(1.4rem, 5vw, 1.85rem);
+    line-height: 1.15;
+  }
+
+  .tss-deck {
+    margin-top: 6px;
+    perspective: 1200px;
   }
   
   .tss-rail {
@@ -1827,27 +1851,64 @@ ul, ol {
    -------------------------------------------------------------------------- */
 @media (max-width: 1024px) {
   .hero-editorial-section {
-    background-image: 
-      linear-gradient(to bottom, #EEEDF2 0%, rgba(238, 237, 242, 0.88) 42%, rgba(238, 237, 242, 0.25) 68%, rgba(238, 237, 242, 0) 100%),
-      url('../assets/images/Hero.png');
-    background-size: 100% 100%, auto min(580px, 62vh);
-    background-position: center top, center bottom;
-    background-repeat: no-repeat, no-repeat;
+    background-image: none !important;
+    background-color: #EEEDF2;
+    padding-top: var(--header-height);
+    display: block;
+    min-height: auto;
+  }
+
+  .hero-mobile-photo-wrap {
+    display: block;
+    position: relative;
+    width: 100%;
+    height: clamp(320px, 48vh, 440px);
+    overflow: hidden;
+    background-color: #EEEDF2;
+  }
+
+  .hero-mobile-photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 10%;
+    display: block;
+  }
+
+  .hero-mobile-fade {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 110px;
+    background: linear-gradient(to bottom, rgba(238, 237, 242, 0) 0%, rgba(238, 237, 242, 0.75) 50%, #EEEDF2 100%);
+    pointer-events: none;
+    z-index: 2;
+  }
+
+  .hero-mobile-seal {
+    top: auto;
+    bottom: 20px;
+    right: 18px;
+    width: 85px;
+    height: 85px;
+    z-index: 4;
+    filter: drop-shadow(0 8px 22px rgba(48, 43, 44, 0.16));
   }
 
   .hero-editorial-container {
     grid-template-columns: 1fr;
     min-height: auto;
-    padding-top: var(--space-xl);
+    padding-top: var(--space-md);
   }
 
   .hero-editorial-text {
     max-width: 100%;
-    background: rgba(238, 237, 242, 0.92);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
-    padding: var(--space-xl);
-    border-radius: 12px;
+    background: transparent;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    padding: 0 0 var(--space-xl);
+    border-radius: 0;
   }
 
   .hero-floating-badges {
@@ -1860,17 +1921,48 @@ ul, ol {
   }
 
   .about-doctor-bleed-section {
-    background-size: cover;
-    background-position: center bottom;
+    background-image: none !important;
+    background-color: #F7EDE8;
+    padding: 0 0 clamp(3.5rem, 8vw, 5rem);
+    display: block;
+    min-height: auto;
+  }
+
+  .about-mobile-photo-wrap {
+    display: block;
+    position: relative;
+    width: 100%;
+    height: clamp(320px, 48vh, 440px);
+    overflow: hidden;
+    background-color: #F7EDE8;
+  }
+
+  .about-mobile-photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 15%;
+    display: block;
+  }
+
+  .about-mobile-fade {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 110px;
+    background: linear-gradient(to bottom, rgba(247, 237, 232, 0) 0%, rgba(247, 237, 232, 0.75) 50%, #F7EDE8 100%);
+    pointer-events: none;
+    z-index: 2;
   }
 
   .about-doctor-bleed-text {
     max-width: 100%;
-    background: rgba(247, 237, 232, 0.94);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
-    padding: var(--space-xl);
-    border-radius: 12px;
+    background: transparent;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    padding: var(--space-lg) 0 0;
+    border-radius: 0;
   }
 
   .procedures-intro-split {
