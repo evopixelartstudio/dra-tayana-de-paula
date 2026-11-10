@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="anim-draw-icon">
+  <!-- Prancheta / Histórico Clínico -->
+  <path d="M22 10H42C44.2 10 46 11.8 46 14V54C46 56.2 44.2 58 42 58H22C19.8 58 18 56.2 18 54V14C18 11.8 19.8 10 22 10Z" />
+  <path d="M26 6H38C39.1 6 40 6.9 40 8V12C40 13.1 39.1 14 38 14H26C24.9 14 24 13.1 24 12V8C24 6.9 24.9 6 26 6Z" />
+  <!-- Linhas de histórico / escuta -->
+  <path d="M26 24H38" />
+  <path d="M26 32H38" />
+  <path d="M26 40H34" />
+  <!-- Estetoscópio integrado da escuta médica -->
+  <path d="M46 36C50 36 53 39 53 43C53 47.5 48.5 50 44 49" />
+  <circle cx="43" cy="48" r="2.5" />
+</svg>

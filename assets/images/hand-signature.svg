@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 120" fill="none" width="100%" height="100%">
+  <!-- Continuous Fine Organic Stroke: Hand & Fluid Finger Gesture Gesture -->
+  <path d="M12 95 C60 90 95 82 135 68 C175 54 210 32 245 28 C275 24 290 42 278 62 C265 82 232 94 205 92 C178 90 162 72 174 52 C186 32 222 22 268 26 C314 30 360 55 408 50" 
+        stroke="currentColor" 
+        stroke-width="1.6" 
+        stroke-linecap="round" 
+        stroke-linejoin="round"
+        opacity="0.85"/>
+  <circle cx="408" cy="50" r="2.5" fill="currentColor"/>
+</svg>

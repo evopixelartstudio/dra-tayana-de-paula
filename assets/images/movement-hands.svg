@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="100%" height="100%">
+  <defs>
+    <linearGradient id="warmBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FAF8F5"/>
+      <stop offset="100%" stop-color="#EFE8DE"/>
+    </linearGradient>
+    <radialGradient id="nerveGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#772E40" stop-opacity="0.12"/>
+      <stop offset="100%" stop-color="#772E40" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <rect width="800" height="600" fill="url(#warmBg)"/>
+  
+  <!-- Sensory aura circle behind hand articulation -->
+  <circle cx="380" cy="310" r="190" fill="url(#nerveGlow)"/>
+
+  <!-- Editorial background grid and measurements -->
+  <line x1="100" y1="120" x2="700" y2="120" stroke="#772E40" stroke-opacity="0.08" stroke-dasharray="4 6"/>
+  <line x1="100" y1="480" x2="700" y2="480" stroke="#772E40" stroke-opacity="0.08" stroke-dasharray="4 6"/>
+  <line x1="200" y1="80" x2="200" y2="520" stroke="#772E40" stroke-opacity="0.08" stroke-dasharray="4 6"/>
+  <line x1="600" y1="80" x2="600" y2="520" stroke="#772E40" stroke-opacity="0.08" stroke-dasharray="4 6"/>
+
+  <!-- Medical / Anatomical coordinate markers -->
+  <text x="210" y="105" font-family="'Manrope', sans-serif" font-size="10" letter-spacing="2" fill="#772E40" opacity="0.6">EIXO ARTICULAR 01</text>
+  <text x="610" y="105" font-family="'Manrope', sans-serif" font-size="10" letter-spacing="2" fill="#772E40" opacity="0.6">MOBILIDADE DISTAL</text>
+
+  <!-- Delicate Articulated Hand Line Drawing (Hand resting & reaching, expressive lines) -->
+  <g transform="translate(180, 110)">
+    <!-- Wrist & Forearm subtle curves -->
+    <path d="M0 320 C60 300 120 280 180 260" stroke="#CBB9AC" stroke-width="2" fill="none"/>
+    <path d="M40 380 C100 360 160 330 200 300" stroke="#CBB9AC" stroke-width="2" fill="none"/>
+
+    <!-- Carpal bones area (fine dots & arch) -->
+    <path d="M180 260 C210 250 250 240 280 245 C300 248 310 265 305 285 C295 305 260 315 200 300" fill="#F4ECE4" stroke="#772E40" stroke-width="1.5" stroke-dasharray="2 3"/>
+
+    <!-- Metacarpal and Finger Curves in gentle grasp gesture -->
+    <!-- Thumb (Polegar) -->
+    <path d="M190 255 C220 230 240 190 255 170 C265 158 280 162 278 178 C272 205 255 240 250 260" stroke="#772E40" stroke-width="2" fill="none" stroke-linecap="round"/>
+    
+    <!-- Index Finger (Indicador) in refined extension -->
+    <path d="M280 245 C320 220 370 190 415 160 C430 150 445 165 435 180 C395 215 345 250 300 275" stroke="#772E40" stroke-width="2" fill="none" stroke-linecap="round"/>
+    
+    <!-- Middle Finger (Médio) -->
+    <path d="M295 260 C335 240 385 210 430 185 C442 178 450 190 440 202 C400 235 345 270 305 285" stroke="#772E40" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+
+    <!-- Ring Finger (Anelar) -->
+    <path d="M290 280 C325 265 370 240 405 220 C416 214 422 225 414 235 C380 260 335 290 295 298" stroke="#772E40" stroke-width="1.6" fill="none" stroke-linecap="round"/>
+
+    <!-- Little Finger (Mínimo) -->
+    <path d="M280 295 C310 285 345 268 375 252 C384 247 388 256 381 264 C350 285 315 310 270 315" stroke="#772E40" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+
+    <!-- Micro-precision points (Joints / Tendons) -->
+    <circle cx="270" cy="172" r="3.5" fill="#772E40"/>
+    <circle cx="425" cy="168" r="3.5" fill="#772E40"/>
+    <circle cx="438" cy="192" r="3.5" fill="#772E40"/>
+    <circle cx="410" cy="226" r="3.5" fill="#772E40"/>
+
+    <!-- Sensory vibration / motion lines (subtle pulses representing tactile sensation) -->
+    <path d="M445 145 C455 155 460 170 455 185" stroke="#772E40" stroke-width="1.2" stroke-linecap="round" stroke-dasharray="2 3" opacity="0.6"/>
+    <path d="M460 140 C475 155 480 180 470 200" stroke="#772E40" stroke-width="1" stroke-linecap="round" stroke-dasharray="2 4" opacity="0.4"/>
+  </g>
+
+  <!-- Editorial Note / Caption box -->
+  <g transform="translate(60, 480)">
+    <rect width="320" height="60" fill="#FFFFFF" fill-opacity="0.85" rx="2" stroke="#E6DDD4" stroke-width="1"/>
+    <text x="20" y="26" font-family="'Cormorant Garamond', Georgia, serif" font-size="15" font-weight="600" fill="#302B2C">Precisão articular &amp; Sensibilidade</text>
+    <text x="20" y="44" font-family="'Manrope', sans-serif" font-size="11" fill="#706864">Mais de 27 ossos, nervos e tendões em harmonia</text>
+  </g>
+</svg>

@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="100%" height="100%">
+  <defs>
+    <linearGradient id="clinicGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#F9F6F0"/>
+      <stop offset="60%" stop-color="#EFE9E0"/>
+      <stop offset="100%" stop-color="#E2D7CC"/>
+    </linearGradient>
+    <linearGradient id="warmWood" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#9C7A65"/>
+      <stop offset="100%" stop-color="#B28F79"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="800" height="500" fill="url(#clinicGrad)"/>
+
+  <!-- Architectural consultation room linework -->
+  <!-- Window / Light beam -->
+  <polygon points="520,60 760,60 800,440 480,440" fill="#FFFFFF" fill-opacity="0.35"/>
+  <line x1="520" y1="60" x2="480" y2="440" stroke="#772E40" stroke-opacity="0.1" stroke-width="1.5"/>
+  <line x1="760" y1="60" x2="800" y2="440" stroke="#772E40" stroke-opacity="0.1" stroke-width="1.5"/>
+
+  <!-- Minimalist Wall Paneling & Shelf -->
+  <line x1="60" y1="220" x2="440" y2="220" stroke="#772E40" stroke-opacity="0.12" stroke-width="1.5"/>
+  
+  <!-- Desk structure -->
+  <polygon points="180,320 600,320 640,360 140,360" fill="url(#warmWood)" opacity="0.85"/>
+  <rect x="220" y="360" width="16" height="120" fill="#772E40" opacity="0.3"/>
+  <rect x="580" y="360" width="16" height="120" fill="#772E40" opacity="0.3"/>
+
+  <!-- Anatomical hand model on desk -->
+  <g transform="translate(460, 220) scale(0.4)" stroke="#772E40" stroke-width="2.5" fill="none">
+    <ellipse cx="60" cy="240" rx="40" ry="15" fill="#302B2C" opacity="0.4"/>
+    <rect x="54" y="190" width="12" height="50" fill="#772E40"/>
+    <path d="M40 180 C40 140 45 100 50 60 C53 45 65 45 68 60 C72 100 70 140 70 180"/>
+    <path d="M70 170 C75 125 80 80 85 40 C88 25 100 25 103 40 C108 85 105 130 102 170"/>
+    <path d="M102 170 C107 130 115 90 120 55 C123 40 135 40 138 55 C142 95 138 140 132 175"/>
+    <path d="M30 140 C15 120 5 110 -2 120 C10 140 25 160 38 180"/>
+  </g>
+
+  <!-- Consultation armchairs (Stylized contemporary outlines) -->
+  <path d="M260,340 C260,280 290,260 340,260 C390,260 420,280 420,340" fill="none" stroke="#302B2C" stroke-width="2" opacity="0.6"/>
+  <line x1="280" y1="340" x2="280" y2="430" stroke="#302B2C" stroke-width="2" opacity="0.4"/>
+  <line x1="400" y1="340" x2="400" y2="430" stroke="#302B2C" stroke-width="2" opacity="0.4"/>
+
+  <!-- Atmosphere text overlay -->
+  <g transform="translate(60, 80)">
+    <rect width="210" height="48" fill="#FFFFFF" fill-opacity="0.9" rx="2" stroke="#E2D8CF" stroke-width="1"/>
+    <text x="16" y="22" font-family="'Cormorant Garamond', Georgia, serif" font-size="14" font-weight="600" fill="#302B2C">Espaço de Atendimento</text>
+    <text x="16" y="38" font-family="'Manrope', sans-serif" font-size="9" letter-spacing="1.5" fill="#772E40">AMBIENTE ACOLHEDOR EM MANAUS</text>
+  </g>
+</svg>

@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100">
+  <defs>
+    <linearGradient id="p3Grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#EBE3D8"/>
+      <stop offset="100%" stop-color="#D3C3AF"/>
+    </linearGradient>
+    <clipPath id="circleClip3">
+      <circle cx="50" cy="50" r="50"/>
+    </clipPath>
+  </defs>
+  <g clip-path="url(#circleClip3)">
+    <rect width="100" height="100" fill="url(#p3Grad)"/>
+    <!-- Head & Hair (Younger woman portrait) -->
+    <circle cx="50" cy="43" r="21" fill="#E8C9B8"/>
+    <path d="M25 45 C25 20 35 16 50 16 C65 16 75 20 75 45 C75 58 72 70 70 80 C65 65 64 52 64 45 C64 32 60 28 50 28 C40 28 36 32 36 45 C36 52 35 65 30 80 C28 70 25 58 25 45 Z" fill="#6A4E42"/>
+    <!-- Shoulder & Clothing -->
+    <path d="M14 100 C14 74 28 66 50 66 C72 66 86 74 86 100 Z" fill="#8C7464"/>
+  </g>
+</svg>

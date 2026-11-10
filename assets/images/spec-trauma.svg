@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400" width="100%" height="100%">
+  <defs>
+    <linearGradient id="traumaBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#EBE6DE"/>
+      <stop offset="100%" stop-color="#DDD5C9"/>
+    </linearGradient>
+  </defs>
+  <rect width="600" height="400" fill="url(#traumaBg)"/>
+  <!-- Bone architecture & precise anatomical alignment -->
+  <g transform="translate(180, 100)" stroke="#302B2C" stroke-width="1.8" fill="none">
+    <!-- Stylized bone contours -->
+    <path d="M40 30 C30 10 70 5 90 20 C100 40 105 100 105 150 C105 200 100 240 85 260 C70 275 30 270 40 250"/>
+    <path d="M140 30 C150 10 110 5 90 20 C80 40 75 100 75 150 C75 200 80 240 95 260 C110 275 150 270 140 250"/>
+    <!-- Alignment precision lines -->
+    <line x1="10" y1="140" x2="170" y2="140" stroke="#772E40" stroke-width="1.5" stroke-dasharray="3 4"/>
+    <circle cx="90" cy="140" r="5" fill="#772E40"/>
+  </g>
+  <text x="40" y="55" font-family="'Manrope', sans-serif" font-size="11" letter-spacing="2" fill="#772E40" font-weight="600" opacity="0.7">ALINHAMENTO &amp; RECONSTRUÇÃO ÓSSEA</text>
+</svg>

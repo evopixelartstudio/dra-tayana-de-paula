@@ -1,0 +1,82 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1000" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#F2ECE4"/>
+      <stop offset="50%" stop-color="#E8DFD5"/>
+      <stop offset="100%" stop-color="#D9C9BD"/>
+    </linearGradient>
+    <linearGradient id="coatGrad" x1="0%" y1="0%" x2="50%" y2="100%">
+      <stop offset="0%" stop-color="#FFFFFF"/>
+      <stop offset="100%" stop-color="#F5F1EB"/>
+    </linearGradient>
+    <linearGradient id="bordoGlow" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#772E40" stop-opacity="0.12"/>
+      <stop offset="100%" stop-color="#772E40" stop-opacity="0.02"/>
+    </linearGradient>
+    <filter id="softShadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="16" stdDeviation="24" flood-color="#302B2C" flood-opacity="0.08"/>
+    </filter>
+  </defs>
+
+  <!-- Background Canvas -->
+  <rect width="800" height="1000" fill="url(#bgGrad)"/>
+  
+  <!-- Architectural / Editorial Geometry -->
+  <circle cx="580" cy="340" r="280" fill="url(#bordoGlow)"/>
+  <path d="M120 180 L680 180" stroke="#772E40" stroke-opacity="0.15" stroke-width="1" stroke-dasharray="4 8"/>
+  <path d="M680 120 L680 780" stroke="#772E40" stroke-opacity="0.15" stroke-width="1" stroke-dasharray="4 8"/>
+
+  <!-- Subtle Anatomical / Hand Model Silhouette in Background -->
+  <g opacity="0.22" transform="translate(480, 140) scale(0.65)" stroke="#772E40" stroke-width="1.5" fill="none">
+    <!-- Stylized Hand Architecture -->
+    <path d="M100 380 C80 320 85 240 90 180 C93 140 105 100 115 50 C120 30 135 30 140 50 C145 95 142 160 145 200"/>
+    <path d="M145 190 C150 140 160 80 170 30 C175 10 190 10 195 30 C200 85 195 155 195 205"/>
+    <path d="M195 200 C205 150 215 90 225 45 C230 25 245 25 250 45 C255 100 248 165 245 220"/>
+    <path d="M245 220 C255 180 268 130 278 95 C282 80 295 80 298 95 C302 140 292 210 280 260 C265 320 250 370 240 420"/>
+    <!-- Thumb arc -->
+    <path d="M75 270 C50 240 30 220 15 210 C2 200 -5 215 5 230 C25 260 55 310 80 360"/>
+    <!-- Carpal arch lines -->
+    <ellipse cx="170" cy="340" rx="65" ry="35" stroke-dasharray="3 5"/>
+    <circle cx="170" cy="340" r="4" fill="#772E40"/>
+  </g>
+
+  <!-- Physician Portrait Silhouette / Aesthetic Form -->
+  <g filter="url(#softShadow)">
+    <!-- Base Coat & Shoulder Form -->
+    <path d="M160 1000 C170 780 210 650 310 590 C340 572 460 572 490 590 C590 650 630 780 640 1000 Z" fill="url(#coatGrad)"/>
+    
+    <!-- Lab Coat Collar Lapels -->
+    <path d="M340 585 L400 740 L300 790 L260 630 Z" fill="#F8F6F2" stroke="#E2D8CF" stroke-width="1.5"/>
+    <path d="M460 585 L400 740 L500 790 L540 630 Z" fill="#F8F6F2" stroke="#E2D8CF" stroke-width="1.5"/>
+    <path d="M400 740 L400 1000" stroke="#D9C9BD" stroke-width="1.5"/>
+    
+    <!-- Neck & Jawline -->
+    <path d="M365 530 C365 580 435 580 435 530 L435 460 L365 460 Z" fill="#EAD9CE"/>
+    <path d="M350 420 C350 515 450 515 450 420 C450 325 350 325 350 420 Z" fill="#EEDDCE"/>
+
+    <!-- Hair Elegance / Silhouette -->
+    <path d="M345 410 C335 340 365 270 410 270 C465 270 480 340 470 410 C465 450 455 490 455 520 C440 500 425 490 410 490 C380 490 355 480 345 410 Z" fill="#302B2C"/>
+    
+    <!-- Delicate Facial Features Lines -->
+    <path d="M420 405 C420 412 416 418 408 418 C400 418 396 412 396 405" stroke="#772E40" stroke-width="1.5" stroke-linecap="round" fill="none" opacity="0.6"/>
+    <path d="M405 375 L402 392 L408 392" stroke="#B89B8B" stroke-width="1.2" stroke-linecap="round" fill="none"/>
+    <path d="M375 365 C382 360 390 360 395 365" stroke="#302B2C" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+    <path d="M415 365 C422 360 430 360 437 365" stroke="#302B2C" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+
+    <!-- Stethoscope Curve (Symbol of clinical care) -->
+    <path d="M350 630 C330 680 330 760 370 780 C395 790 405 770 405 750" fill="none" stroke="#772E40" stroke-width="3" stroke-linecap="round"/>
+    <circle cx="370" cy="780" r="9" fill="#772E40"/>
+    <circle cx="370" cy="780" r="5" fill="#D9C9BD"/>
+  </g>
+
+  <!-- Editorial Badge overlay -->
+  <g transform="translate(60, 840)">
+    <rect width="240" height="74" rx="4" fill="#FFFFFF" fill-opacity="0.94" filter="url(#softShadow)"/>
+    <line x1="16" y1="20" x2="16" y2="54" stroke="#772E40" stroke-width="2.5"/>
+    <text x="32" y="38" font-family="'Cormorant Garamond', Georgia, serif" font-size="18" font-weight="600" fill="#302B2C">Dra. Tayana de Paula</text>
+    <text x="32" y="55" font-family="'Manrope', sans-serif" font-size="11" font-weight="500" letter-spacing="1.5" fill="#772E40">CRM-AM 10270</text>
+  </g>
+
+  <!-- Frame border accent -->
+  <rect x="24" y="24" width="752" height="952" fill="none" stroke="#772E40" stroke-opacity="0.12" stroke-width="1"/>
+</svg>

@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 50" width="160" height="50">
+  <!-- Monogram Mark -->
+  <g transform="translate(4, 5)">
+    <!-- Shield / Seal subtle circle -->
+    <circle cx="20" cy="20" r="19" fill="#F7F4EF" stroke="#772E40" stroke-width="1.2"/>
+    <!-- Interlocking Monogram TP -->
+    <text x="20" y="27" font-family="'Cormorant Garamond', Georgia, serif" font-size="20" font-weight="600" fill="#772E40" text-anchor="middle" letter-spacing="-1">TP</text>
+    <!-- Micro precision dot -->
+    <circle cx="20" cy="8" r="1.5" fill="#772E40"/>
+  </g>
+  <!-- Brand Text -->
+  <text x="52" y="24" font-family="'Cormorant Garamond', Georgia, serif" font-size="18" font-weight="600" letter-spacing="0.5" fill="#302B2C">Dra. Tayana</text>
+  <text x="52" y="38" font-family="'Manrope', sans-serif" font-size="8.5" font-weight="600" letter-spacing="2" fill="#772E40">DE PAULA</text>
+</svg>
