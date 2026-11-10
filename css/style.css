@@ -941,49 +941,102 @@ ul, ol {
   align-items: center;
   gap: 0.5rem;
   padding: 0.45rem 0.95rem;
-  background-color: rgba(255, 255, 255, 0.92);
+  background-color: rgba(255, 255, 255, 0.94);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
-  border: 1px solid rgba(217, 201, 189, 0.6);
+  border: 1px solid rgba(217, 201, 189, 0.7);
   border-radius: 9999px;
   box-shadow: 0 8px 24px rgba(48, 43, 44, 0.08);
   font-family: var(--font-sans);
   font-size: 0.825rem;
   font-weight: 600;
   color: var(--color-grafite);
-  animation: gentleFloat 5s ease-in-out infinite alternate;
+  pointer-events: auto;
+  cursor: default;
+  transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.35s ease, border-color 0.35s ease;
+  will-change: transform;
+}
+
+.floating-pill-badge:hover {
+  animation-play-state: paused !important;
+  transform: translateY(-6px) scale(1.05) !important;
+  box-shadow: 0 16px 36px rgba(48, 43, 44, 0.15);
+  border-color: rgba(119, 46, 64, 0.45);
 }
 
 .floating-pill-badge .pill-check {
   color: #2E7D32;
   font-weight: 700;
   font-size: 0.85rem;
+  display: inline-block;
+  transition: transform 0.3s ease;
+}
+
+.floating-pill-badge:hover .pill-check {
+  transform: scale(1.25);
 }
 
 .badge-top {
   top: 18%;
   left: -2%;
-  animation-delay: 0s;
+  animation: floatPillTop 4.6s cubic-bezier(0.45, 0.05, 0.55, 0.95) infinite;
 }
 
 .badge-middle {
   top: 52%;
   left: -8%;
-  animation-delay: 1.2s;
+  animation: floatPillMiddle 5.4s cubic-bezier(0.45, 0.05, 0.55, 0.95) infinite;
 }
 
 .badge-bottom {
   bottom: 10%;
   left: 2%;
-  animation-delay: 2.4s;
+  animation: floatPillBottom 4.9s cubic-bezier(0.45, 0.05, 0.55, 0.95) infinite;
 }
 
-@keyframes gentleFloat {
+/* Movimentos orgânicos distintos para cada pill (evita sincronização rígida) */
+@keyframes floatPillTop {
   0% {
-    transform: translateY(0);
+    transform: translateY(0px) translateX(0px) rotate(0deg);
+  }
+  33% {
+    transform: translateY(-9px) translateX(4px) rotate(0.8deg);
+  }
+  66% {
+    transform: translateY(-3px) translateX(-3px) rotate(-0.5deg);
   }
   100% {
-    transform: translateY(-8px);
+    transform: translateY(0px) translateX(0px) rotate(0deg);
+  }
+}
+
+@keyframes floatPillMiddle {
+  0% {
+    transform: translateY(0px) translateX(0px) rotate(0deg);
+  }
+  38% {
+    transform: translateY(8px) translateX(-5px) rotate(-0.9deg);
+  }
+  72% {
+    transform: translateY(-7px) translateX(4px) rotate(0.6deg);
+  }
+  100% {
+    transform: translateY(0px) translateX(0px) rotate(0deg);
+  }
+}
+
+@keyframes floatPillBottom {
+  0% {
+    transform: translateY(0px) translateX(0px) rotate(0deg);
+  }
+  30% {
+    transform: translateY(-8px) translateX(3px) rotate(-0.6deg);
+  }
+  70% {
+    transform: translateY(6px) translateX(-4px) rotate(0.7deg);
+  }
+  100% {
+    transform: translateY(0px) translateX(0px) rotate(0deg);
   }
 }
 
